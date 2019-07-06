@@ -1,0 +1,183 @@
+/*int x=120;
+int y = 60;
+int radius=12;*/
+/*
+void setup(){
+  size(240,120);
+  ellipseMode(RADIUS);
+
+}
+
+void draw(){
+  background(204);
+  float d=dist(mouseX,mouseY,x,y);
+ 
+  if (d<radius){
+    radius++;
+    fill(0);
+  }
+  else if(d>radius){
+    radius--;
+    fill(255);
+    
+  }
+  else fill(244);
+  ellipse(x,y,radius, radius);
+}*/
+/*int x=120;
+int y=60;
+int w=77;
+int h=77;
+
+void setup(){
+  size(240,120);
+}
+
+void draw(){
+  background(204);
+  if((mouseX>x)&&(mouseX<x+w)&&(mouseY>y+h)){
+    fill(0);
+  }
+  else{
+    fill(255);
+  }
+  rect(x,y,w,h);
+}*/
+/*void setup(){
+  size(480,240);
+  line(20,20,220,100);
+  if(keyPressed){
+    line(440,40,40,200);
+  }*/
+  
+  
+ /* void setup(){
+  size(240,120);
+  textSize(64);
+  textAlign(CENTER);
+  
+}
+  
+  void draw(){
+    background(0);
+    text(key,60,80);
+    strokeWeight(5);
+  }*/
+  
+  /*
+  void setup(){
+  size(240,120);
+}
+
+void draw(){
+  background(204);
+  if(keyPressed){
+    if((key=='h')||(key=='H')){
+      line(30,60,90,60);
+    }
+  }
+  else   line(30,20,30,100);
+  line(90,20,90,100);
+}*/
+/*
+float x;
+float easing=0.1;
+
+void setup(){
+  size(1000,120);
+  //stroke(0,102);
+}
+
+void draw(){
+  background(204);
+  stroke(255);
+  line(40,0,70,height);
+  if(mousePressed==true){
+    stroke(0);
+}
+line(0,70,width,50);
+}
+else{
+  stroke(255);
+  line(0,70,width,50);
+}
+float x;
+float easing=0.1;
+
+void setup(){
+  size(1000,120);
+  stroke(0,102);
+}
+
+void draw(){
+  float targetX=mouseX;
+  x+=(targetX-x)*easing;
+  ellipse(x,40,12,12);
+  println(targetX+":"+x);
+} */
+
+
+
+int x=60;
+int y=390;
+int bodyHeight=180;
+int radius=45;
+int neckHeight=40;
+float easing=0.04;
+
+void setup(){
+size(4000,2000);
+
+strokeWeight(2);
+background(0,153,204);
+ellipseMode(RADIUS);
+}
+void draw(){
+  int targetX=mouseX;
+  x+=(targetX-x)*easing;
+  
+  if(mousePressed){
+    neckHeight=16;
+    bodyHeight=90;
+  }
+  else{
+    neckHeight=70;
+    bodyHeight=160;
+  }
+float ny=y-bodyHeight-neckHeight-radius;
+background(0,150,200);
+//neck
+stroke(255);
+line(x+2,y-bodyHeight,x+2,ny);
+line(x+12,y-bodyHeight,x+12,ny);
+line(x+22,y-bodyHeight,x+22,ny);
+
+
+//antena
+line(x+12,ny,x-18,ny-43);
+line(x+12,ny,x+42,ny-99);
+line(x+12,ny,x+78,ny+15);
+
+
+//body
+noStroke();
+fill(255,204,0);
+ellipse(x,y-33,33,33);
+fill(0);
+rect(x-45,y-bodyHeight,90,bodyHeight-33);
+fill(255,204,0);
+rect(x-45,y-bodyHeight+17,90,6);
+
+
+//head
+fill(0);
+ellipse(x+12,ny,radius,radius);
+fill(255);
+ellipse(x+24,ny-6,14,14);
+fill(0);
+ellipse(x+24,ny-6,3,3);
+fill(153,204,255);
+ellipse(x,ny-8,5,5);
+ellipse(x+30,ny-26,4,4);
+ellipse(x+41,ny+6,3,3); 
+}
